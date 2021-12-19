@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React from "react";
+import {Switch, Route, NavLink} from 'react-router-dom';
+import Homepage from "./pages/Homepage";
+import Subreddit from "./pages/Subreddit";
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+
+            <NavLink to='/'/>
+            <NavLink to='/subreddit/:id'/>
+
+            <Switch>
+                <Route exact path='/'>
+                    <Homepage/>
+                </Route>
+
+                <Route path='/subreddit/:id'>
+                    <Subreddit/>
+                </Route>
+            </Switch>
+
+        </div>
+    );
 }
 
 export default App;
